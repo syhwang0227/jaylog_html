@@ -130,6 +130,8 @@
   <!-- Custom scripts -->
   <script type="text/javascript">
     const requestJoin = () => {
+      
+      // 사실 이 if문은 없어도 된다. 하지만 서버로 가기 전에 프론트에서 확인하는 것이 좋다.
       if (!validateFields()) {
         return;
       }
@@ -157,8 +159,8 @@
         simpleDesc: simpleDescElement.value,
         profileImg:
           "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
-        createDate: new Date().toJSON(),
-        updateDate: new Date().toJSON(),
+        createDate: new Date().toJSON(),  // 이 아이디가 생성된 날짜 / 객체로 보내면 안 되니까 Json 형태로 전달 
+        updateDate: new Date().toJSON(),  // 정보에 변경이 생기면 업데이트 
         deleteDate: null,
       };
 
@@ -175,7 +177,7 @@
       const idElement = document.getElementById("id");
       const pwElement = document.getElementById("pw");
       const pw2Element = document.getElementById("pw2");
-      const simpleDescElement = document.getElementById("simpleDesc");
+      const simpleDescElement = document.getElementById("simpleDesc"); // 간단한 설명
 
       if (idElement.value === "") {
         alert("아이디를 입력해주세요.");
@@ -201,7 +203,7 @@
         return false;
       }
 
-      return true;
+      return true; // 위의 if문들을 다 통과하면 true
     };
 
     const setJoinPage = () => {
